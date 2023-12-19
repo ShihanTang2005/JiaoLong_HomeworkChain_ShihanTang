@@ -395,6 +395,11 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\main.c</FilePath>
+            </File>
+            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/gpio.c</FilePath>
@@ -413,11 +418,6 @@
               <FileName>dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/dma.c</FilePath>
-            </File>
-            <File>
-              <FileName>iwdg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/iwdg.c</FilePath>
             </File>
             <File>
               <FileName>spi.c</FileName>
@@ -443,11 +443,6 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -538,11 +533,6 @@
               <FileName>stm32f4xx_hal_can.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_hal_iwdg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_spi.c</FileName>

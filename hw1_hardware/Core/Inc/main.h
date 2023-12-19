@@ -61,7 +61,7 @@ void Error_Handler(void);
 #define ADC_BAT_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
-
+#define RC_FRAME_LENGTH 18u
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

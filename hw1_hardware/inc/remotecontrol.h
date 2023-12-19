@@ -2,9 +2,18 @@
 #ifndef REMOTECONTROL_H
 #define REMOTECONTROL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 
 #include "main.h"
+
+#define RC_CH_VALUE_ZERO  (1024)
+#define RC_CH_VALUE_RANGE (660)
+
+#define RC_MOUSE_VALUE_ZERO  (0)
+#define RC_MOUSE_VALUE_RANGE (32768)
 
 /* ----------------------- RC Channel Definition---------------------------- */
 #define RC_CH_VALUE_MIN ((uint16_t)364 )
@@ -23,32 +32,41 @@
 #define KEY_PRESSED_OFFSET_E ((uint16_t)0x01<<5)
 #define KEY_PRESSED_OFFSET_SHIFT ((uint16_t)0x01<<6)
 #define KEY_PRESSED_OFFSET_CTRL ((uint16_t)0x01<<7)
-#define SBUS_RX_BUF_NUM 36u
-#define RC_FRAME_LENGTH 18u
+//#define RC_FRAME_LENGTH 18u
 /* ----------------------- Data Struct ------------------------------------- */
+#include "main.h"
 typedef struct
 {
     struct
     {
-        float ch[4];
-        uint8_t s[2];
-    }rc;
+        float ch0;
+        float ch1;
+        float ch2;
+        float ch3;
+        uint8_t s1;
+        uint8_t s2;
+    }__attribute__((packed)) rc;
     struct
     {
-        int16_t x;
-        int16_t y;
-        int16_t z;
+        float x;
+        float y;
+        float z;
         uint8_t press_l;
         uint8_t press_r;
-    }mouse;
+    }__attribute__((packed)) mouse;
     struct
     {
         uint16_t v;
-    }key;
-}__packed RC_Ctl_t;
+    }__attribute__((packed)) key;
+}__attribute__((packed)) RC_Ctl_t;
+/* ----------------------- Internal Data ----------------------------------- */
 
-void sbus_to_rc(volatile const uint8_t *sbus_buf, RC_Ctl_t *rc_ctrl);
+
+void RemoteControlDataReceive();
 void RC_init(void);
-
+void RemoteControlDataUtilize(void);
+#ifdef __cplusplus
+};
+#endif
 
 #endif

@@ -6,7 +6,7 @@
 #include "../inc/callback.h"
 #include "../Inc/my_math.h"
 
-PID spid=PID(20,10,0,1000,8);
+PID spid=PID(1,0.01,1,1000,8);
 PID ppid=PID();
 
 Motor motor1=Motor(Motor::M2006,36,Motor::SPEED,ppid,spid);

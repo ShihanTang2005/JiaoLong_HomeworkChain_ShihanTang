@@ -1,5 +1,4 @@
 /* USER CODE BEGIN Header */
-
 /**
   ******************************************************************************
   * @file           : main.c
@@ -29,9 +28,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include"../../inc/remotecontrol.h"
-#include"../../inc/callback.h"
-#include"../../inc/motortask.h"
+#include "../../inc/bsp_can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,7 +49,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern volatile uint8_t sbus_rx_buffer[RC_FRAME_LENGTH];
+extern volatile uint8_t  sbus_rx_buffer[];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,50 +60,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/*
-void MainControlLoop(void) {
-    USART3_IRQHandler();
-}
 
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == htim6.Instance) {
-// 因为有很多个定时器，我们�?要区别一下是哪一个定时器触发了中�?
-// 这里是tim6触发�?
-        HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn);
-        MainControlLoop();
-        HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
-    }
-
-}
-
-*/
-/*
-uint32_t init_Flag = 0;
-uint32_t period = 5000;
-//volatile float vccBat = 0;
-
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    if(init_Flag == 0)return;
-    if(htim == &htim6){//1ms
-        //HAL_GPIO_TogglePin(LED_R_GPIO_Port,LED_R_Pin);
-
-        static uint32_t cnt = 0;
-        cnt++;
-
-        CtrlHandle ();
-        //ChassisHandle();
-        //Motor::CANPackageSend();
-        //UserHandle();
-        if(cnt>20){
-            HAL_IWDG_Refresh(&hiwdg);
-            cnt =0;
-        }
-    }
-}
-*/
 /* USER CODE END 0 */
 
 /**
@@ -150,13 +104,10 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-  RC_init();
-    //HAL_UARTEx_ReceiveToIdle_DMA(&huart3, (uint8_t *) sbus_rx_buffer, RC_FRAME_LENGTH);
-  //bsp_flash_read(&flashData);
-  //HAL_TIM_Base_Start_IT(&htim10);
-  //Motor::Init();
-  //UserInit();
-  //init_Flag = 1;
+  HAL_TIM_Base_Start_IT(&htim6);
+  HAL_UARTEx_ReceiveToIdle_DMA(&huart3, (uint8_t *) sbus_rx_buffer, RC_FRAME_LENGTH);
+  can_filter_init();
+//    HAL_UART_Receive_IT(&huart3, (uint8_t *) sbus_rx_buffer, RC_FRAME_LENGTH);
   /* USER CODE END 2 */
 
   /* Infinite loop */

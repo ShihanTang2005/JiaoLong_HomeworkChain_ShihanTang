@@ -1,6 +1,5 @@
 --cpu=Cortex-M4.fp.sp
 "hw1_hardware\startup_stm32f407xx.o"
-"hw1_hardware\main.o"
 "hw1_hardware\gpio.o"
 "hw1_hardware\adc.o"
 "hw1_hardware\can.o"
@@ -10,6 +9,7 @@
 "hw1_hardware\usart.o"
 "hw1_hardware\stm32f4xx_it.o"
 "hw1_hardware\stm32f4xx_hal_msp.o"
+"hw1_hardware\main.o"
 "hw1_hardware\stm32f4xx_hal_adc.o"
 "hw1_hardware\stm32f4xx_hal_adc_ex.o"
 "hw1_hardware\stm32f4xx_ll_adc.o"
@@ -33,8 +33,12 @@
 "hw1_hardware\stm32f4xx_hal_uart.o"
 "hw1_hardware\system_stm32f4xx.o"
 "hw1_hardware\callback.o"
+"hw1_hardware\maincontrol.o"
 "hw1_hardware\motortask.o"
+"hw1_hardware\my_math.o"
+"hw1_hardware\pid.o"
 "hw1_hardware\remotecontrol.o"
+"hw1_hardware\bsp_can.o"
 --strict --scatter "hw1_hardware\hw1_hardware.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

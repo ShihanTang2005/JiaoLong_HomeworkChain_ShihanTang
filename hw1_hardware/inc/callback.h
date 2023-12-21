@@ -22,7 +22,9 @@
 #include <stdio.h>
 //#include "usbd_cdc_if.h"
 //#include "remotecontrol.h"
-#include "motortask.h"
+
+
+void MainControlLoop();
 
 
 

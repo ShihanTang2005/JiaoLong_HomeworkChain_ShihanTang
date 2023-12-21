@@ -10,14 +10,14 @@
       <TargetName>hw1_hardware</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pCCUsed>6210000::V6.21::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F407IGHx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32F4xx_DFP.2.16.0</PackID>
-          <PackURL>http://www.keil.com/pack/</PackURL>
+          <PackID>Keil.STM32F4xx_DFP.2.17.1</PackID>
+          <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000-0x2001BFFF) IRAM2(0x2001C000-0x2001FFFF) IROM(0x8000000-0x80FFFFF) CLOCK(25000000) FPU2 CPUTYPE("Cortex-M4") TZ</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -323,7 +323,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -395,11 +395,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\main.c</FilePath>
-            </File>
-            <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/gpio.c</FilePath>
@@ -443,6 +438,11 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Core\Src\main.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -567,7 +567,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>User</GroupName>
+          <GroupName>user</GroupName>
           <Files>
             <File>
               <FileName>callback.cpp</FileName>
@@ -575,14 +575,34 @@
               <FilePath>..\src\callback.cpp</FilePath>
             </File>
             <File>
+              <FileName>maincontrol.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\maincontrol.cpp</FilePath>
+            </File>
+            <File>
               <FileName>motortask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\src\motortask.cpp</FilePath>
             </File>
             <File>
+              <FileName>my_math.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\my_math.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PID.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\PID.cpp</FilePath>
+            </File>
+            <File>
               <FileName>remotecontrol.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\src\remotecontrol.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_can.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\src\bsp_can.cpp</FilePath>
             </File>
           </Files>
         </Group>

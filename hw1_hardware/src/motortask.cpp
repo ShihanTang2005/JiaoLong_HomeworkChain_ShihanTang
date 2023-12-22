@@ -7,12 +7,20 @@
 
 #include "../inc/motor.h"
 #include "math.h"
-#include "../Inc/my_math.h"
+#include "../inc/my_math.h"
+#include "../inc/maincontrol.h"
+
+
+void motor_init(){
+    can1_motor_[0]=&GMP;
+    can2_motor_[0]=&GMY;
+}
 
 
 Motor::Motor(const Type& type, const float& ratio, const ControlMethod& method,
-             const PID& ppid, const PID& spid)
+             const PID& ppid, const PID& spid,uint16_t id)
 {
+    id_=id;
     info_.type=type;
     info_.ratio=ratio;
     mode_=Motor::WORKING;
@@ -97,10 +105,9 @@ void Motor::SetSpeed(const float& target_speed) // 设置目标速度
 
 
 
-extern Motor motor1;
-uint8_t motor_Tx_message[8]={0};
-static CAN_TxHeaderTypeDef motor_Tx_header;
-static uint32_t TxMailbox0;
+//extern Motor motor1;
+
+
 
 extern Motor GMY;
 extern Motor GMP;
@@ -109,39 +116,30 @@ extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
 
 
-void MotorControlCANTx(void)
-{
-    //id 1
-    uint16_t intense = motor1.intensity_;
-    motor_Tx_message[0]=(uint8_t)(intense >> 8);//电流值的高8位
-    motor_Tx_message[1]=(uint8_t)(intense & 0xFF); //电流值的低八位
-    //id 2
-    motor_Tx_message[2]=0;
-    motor_Tx_message[3]=0;
-    //id 3
-    motor_Tx_message[4]=0;
-    motor_Tx_message[5]=0;
-    //id 4
-    motor_Tx_message[6]=0;
-    motor_Tx_message[7]=0;
+uint8_t motor_Tx_message[8]={0};
+static CAN_TxHeaderTypeDef motor_Tx_header;
+static uint32_t TxMailbox0;
 
-    motor_Tx_header.StdId=0x200;  //标识符
+void MotorControlCANTx(Motor* motor1,uint32_t stdid,CAN_HandleTypeDef *hcan)
+{
+    motor1->canTxMsg();
+    motor_Tx_header.StdId=stdid;  //标识符
     motor_Tx_header.ExtId=0;
     motor_Tx_header.IDE=CAN_ID_STD;
     motor_Tx_header.RTR=CAN_RTR_DATA;
     motor_Tx_header.DLC=8;
     motor_Tx_header.TransmitGlobalTime=DISABLE;
-    HAL_CAN_AddTxMessage(&hcan1, &motor_Tx_header, motor_Tx_message, &TxMailbox0);
+    HAL_CAN_AddTxMessage(hcan, &motor_Tx_header, motor_Tx_message, &TxMailbox0);
 
-/*
-    motor_Tx_message[0]=(uint16_t)(motor[4].intensity_);
-    motor_Tx_message[1]=(uint16_t)(motor[5].intensity_);
-    motor_Tx_message[2]=(uint16_t)(motor[6].intensity_);
-    motor_Tx_message[3]=(uint16_t)(motor[7].intensity_);
+}
 
-    motor_Tx_header={0x1FF,0,CAN_ID_STD,CAN_RTR_DATA,8,DISABLE};
-    HAL_CAN_AddTxMessage(&hcan1,&motor_Tx_header,(uint8_t*)motor_Tx_message,&TxMailbox1);
-*/
+void Motor::canTxMsg()
+{
+    uint16_t motor_index=id_;
+    uint16_t intense = intensity_;
+    motor_Tx_message[id_*2-2] = (uint8_t) (intense >> 8);//电流值的高8位
+    motor_Tx_message[id_*2-1] = (uint8_t) (intense & 0xFF); //电流值的低八位
+
 }
 
 void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_header,const uint8_t *rx_data)
@@ -174,9 +172,6 @@ void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_hea
 }
 
 void Motor::canRxMsg(const uint8_t *rx_data) {
-
-    //uint16_t motor_index=rx_header->StdId - 0x201;
-
     //M3508最大空载转速为589rpm，在一个CAN周期中最多转动589rpm*1ms=3.534度
     //M2006最大空载转速为777rpm，在一个CAN周期中最多转动777rpm*1ms=4.662度
     //GM6020最大空载转速为320rpm，在一个CAN周期中最多转动320rpm*1ms=1.92度
@@ -197,7 +192,7 @@ void Motor::canRxMsg(const uint8_t *rx_data) {
     Motor::motor_data_.angle=Motor::motor_data_.ecd_angle/Motor::info_.ratio+Motor::motor_data_.angle_cycle_count;
     if(Motor::motor_data_.angle>360)
         Motor::motor_data_.angle-=360; //输出端也有360度的周期截断
-    Motor::motor_data_.rotate_speed=(float)((int16_t)((uint16_t)rx_data[2]<<8|(uint16_t)rx_data[3]))/Motor::info_.ratio;
+    Motor::motor_data_.rotate_speed=(float)((int16_t)((uint16_t)rx_data[2]<<8|(uint16_t)rx_data[3]))/Motor::info_.ratio; //除以减速比
     Motor::motor_data_.temp=(float)rx_data[6];
 }
 

@@ -24,13 +24,15 @@ public:
 
 public:
     Motor(const Type& type, const float& ratio, const ControlMethod& method,
-          const PID& ppid, const PID& spid);//method==SPEED时，ppid=NULL,spid有效
+          const PID& ppid, const PID& spid,uint16_t id);//method==SPEED时，ppid=NULL,spid有效
     void Reset(); // 重置电机所有状态
     void Handle(); // 根据当前 mode_ 计算控制量
     void SetAngle(const float& target_angle); // 设置目标角度
     void SetSpeed(const float& target_speed); // 设置目标速度
     void canRxMsg(const uint8_t *rx_data);
+    void canTxMsg();
 public:
+    uint16_t id_;
     struct MotorInfo {
         Type type;
         float ratio; // 减速比
@@ -53,7 +55,7 @@ public:
     PID ppid_, spid_;
 };
 
-void MotorControlCANTx(void);
+void MotorControlCANTx(Motor* motor1,uint32_t stdid,CAN_HandleTypeDef *hcan);
 void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_header,const uint8_t *rx_data);
-
+void motor_init();
 #endif //PROJECT_MOTOR_HPP

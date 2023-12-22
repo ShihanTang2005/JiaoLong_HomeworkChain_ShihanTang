@@ -9,4 +9,6 @@
 extern Motor GMY;
 extern Motor GMP;
 
+extern Motor* can1_motor_[11];
+extern Motor* can2_motor_[11];
 #endif //HW1_HARDWARE_MAINCONTROL_H

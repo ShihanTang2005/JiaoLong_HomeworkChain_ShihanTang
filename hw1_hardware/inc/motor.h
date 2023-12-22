@@ -29,7 +29,7 @@ public:
     void Handle(); // 根据当前 mode_ 计算控制量
     void SetAngle(const float& target_angle); // 设置目标角度
     void SetSpeed(const float& target_speed); // 设置目标速度
-
+    void canRxMsg(const uint8_t *rx_data);
 public:
     struct MotorInfo {
         Type type;

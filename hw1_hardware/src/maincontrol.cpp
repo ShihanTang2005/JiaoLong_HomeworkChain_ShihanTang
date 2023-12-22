@@ -4,7 +4,8 @@
 #include "../inc/remotecontrol.h"
 #include "../inc/motor.h"
 #include "../inc/callback.h"
-#include "../Inc/my_math.h"
+#include "../inc/my_math.h"
+#include "../inc/maincontrol.h"
 
 PID spid=PID(1,0.01,1,1000,8);
 PID ppid=PID();

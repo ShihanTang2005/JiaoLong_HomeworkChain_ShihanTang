@@ -102,6 +102,8 @@ uint8_t motor_Tx_message[8]={0};
 static CAN_TxHeaderTypeDef motor_Tx_header;
 static uint32_t TxMailbox0;
 
+extern Motor GMY;
+extern Motor GMP;
 
 extern CAN_HandleTypeDef hcan1;
 extern CAN_HandleTypeDef hcan2;
@@ -146,28 +148,56 @@ void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_hea
 {
     if(rx_header->StdId < 0x201 || rx_header->StdId > 0x20B) //不是DJI电机数据包
         return;
+    uint16_t motor_index=rx_header->StdId - 0x200;
+    if (hcan == &hcan1){
+        switch(motor_index){
+            case 1:
+                motor1.canRxMsg(rx_data);
+                break;
+            case 8:
+                GMP.canRxMsg(rx_data);  //can1 id 8
+                break;
+            default:
+                break;
+        }
+    }else if(hcan == &hcan2){
+        switch(motor_index){
+            case 8:
+                GMY.canRxMsg(rx_data);  //can2 id8
+                break;
+            default:
+                break;
+        }
+    }
+
+
+}
+
+void Motor::canRxMsg(const uint8_t *rx_data) {
+
     //uint16_t motor_index=rx_header->StdId - 0x201;
 
     //M3508最大空载转速为589rpm，在一个CAN周期中最多转动589rpm*1ms=3.534度
     //M2006最大空载转速为777rpm，在一个CAN周期中最多转动777rpm*1ms=4.662度
     //GM6020最大空载转速为320rpm，在一个CAN周期中最多转动320rpm*1ms=1.92度
-    motor1.motor_data_.last_ecd_angle=motor1.motor_data_.ecd_angle;
-    motor1.motor_data_.ecd_angle=Encoder2Degree((float)((uint16_t)rx_data[0]<<8|(uint16_t)rx_data[1]),8192);
-    if(motor1.motor_data_.ecd_angle-motor1.motor_data_.last_ecd_angle>180) //0跳到360
+    Motor::motor_data_.last_ecd_angle=Motor::motor_data_.ecd_angle;
+    Motor::motor_data_.ecd_angle=Encoder2Degree((float)((uint16_t)rx_data[0]<<8|(uint16_t)rx_data[1]),8192);
+    if(Motor::motor_data_.ecd_angle-Motor::motor_data_.last_ecd_angle>180) //0跳到360
     {
-        motor1.motor_data_.angle_cycle_count -= 360 / motor1.info_.ratio;
-        if(motor1.motor_data_.angle_cycle_count<0)
-            motor1.motor_data_.angle_cycle_count+=360; //输出端也有360度的周期截断
+        Motor::motor_data_.angle_cycle_count -= 360 / Motor::info_.ratio;
+        if(Motor::motor_data_.angle_cycle_count<0)
+            Motor::motor_data_.angle_cycle_count+=360; //输出端也有360度的周期截断
     }
-    else if(motor1.motor_data_.last_ecd_angle-motor1.motor_data_.ecd_angle>180) //360跳到0
+    else if(Motor::motor_data_.last_ecd_angle-Motor::motor_data_.ecd_angle>180) //360跳到0
     {
-        motor1.motor_data_.angle_cycle_count += 360 / motor1.info_.ratio;
-        if(motor1.motor_data_.angle_cycle_count>360)
-            motor1.motor_data_.angle_cycle_count-=360; //输出端也有360度的周期截断
+        Motor::motor_data_.angle_cycle_count += 360 / Motor::info_.ratio;
+        if(Motor::motor_data_.angle_cycle_count>360)
+            Motor::motor_data_.angle_cycle_count-=360; //输出端也有360度的周期截断
     }
-    motor1.motor_data_.angle=motor1.motor_data_.ecd_angle/motor1.info_.ratio+motor1.motor_data_.angle_cycle_count;
-    if(motor1.motor_data_.angle>360)
-        motor1.motor_data_.angle-=360; //输出端也有360度的周期截断
-    motor1.motor_data_.rotate_speed=(float)((int16_t)((uint16_t)rx_data[2]<<8|(uint16_t)rx_data[3]))/motor1.info_.ratio;
-    motor1.motor_data_.temp=(float)rx_data[6];
+    Motor::motor_data_.angle=Motor::motor_data_.ecd_angle/Motor::info_.ratio+Motor::motor_data_.angle_cycle_count;
+    if(Motor::motor_data_.angle>360)
+        Motor::motor_data_.angle-=360; //输出端也有360度的周期截断
+    Motor::motor_data_.rotate_speed=(float)((int16_t)((uint16_t)rx_data[2]<<8|(uint16_t)rx_data[3]))/Motor::info_.ratio;
+    Motor::motor_data_.temp=(float)rx_data[6];
 }
+

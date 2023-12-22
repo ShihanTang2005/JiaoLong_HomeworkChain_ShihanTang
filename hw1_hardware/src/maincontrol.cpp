@@ -11,6 +11,15 @@ PID ppid=PID();
 
 Motor motor1=Motor(Motor::M2006,36,Motor::SPEED,ppid,spid);
 
+//copied from 2023 old frame, delete kf filter
+Motor GMY(Motor::GM6020, 1, Motor::POSITION_SPEED,    // type, ratio, method
+          PID(20, 1.0, 6, 0.5, 480),             // ppid
+          PID(500, 0, 0, 0, 30000));            // spid
+Motor GMP(Motor::GM6020, 1, Motor::POSITION_SPEED,    // type, ratio, method
+          PID(18, 1.5, 16, 3, 480),              // ppid
+          PID(400, 0, 0, 0,30000));
+
+
 extern RC_Ctl_t RC_CtrlData;
 
 void MainControlLoop() {
@@ -20,5 +29,9 @@ void MainControlLoop() {
         motor1.target_speed_=radps2rpm(RC_CtrlData.rc.ch0);
     motor1.Handle();
     MotorControlCANTx();
+
+}
+
+void ControlPlatform(){
 
 }

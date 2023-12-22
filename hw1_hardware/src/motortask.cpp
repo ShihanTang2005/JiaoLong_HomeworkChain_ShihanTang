@@ -30,6 +30,15 @@ Motor::Motor(const Type& type, const float& ratio, const ControlMethod& method,
     if(method_==Motor::POSITION_SPEED)
         ppid_=PID(ppid.kp_,(info_.ratio>0)?ppid.ki_:(-ppid.ki_),(info_.ratio>0)?ppid.kd_:(-ppid.kd_),ppid.i_max_,ppid.out_max_);
     spid_=PID(spid.kp_,(info_.ratio>0)?spid.ki_:(-spid.ki_),(info_.ratio>0)?spid.kd_:(-spid.kd_),spid.i_max_,spid.out_max_);
+    if (info_.type == Motor::M3508) {
+        info_.max_intensity = 16384;
+    } else if (info_.type == Motor::M2006) {
+        info_.max_intensity = 10000;
+    } else if (info_.type == Motor::GM6020) {
+        info_.max_intensity = 30000;
+    } //set max_intensity
+
+
 }
 void Motor::Reset() // 重置电机所有状态
 {

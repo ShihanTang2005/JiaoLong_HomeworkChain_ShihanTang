@@ -35,6 +35,7 @@ public:
         Type type;
         float ratio; // 减速比
         //M2006减速比为36:1
+        float max_intensity;
     } info_;
     Mode mode_;
     ControlMethod method_;

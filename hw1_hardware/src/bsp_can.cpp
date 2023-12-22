@@ -19,26 +19,29 @@ void get_moto_offset(moto_measure_t *ptr, CAN_HandleTypeDef* hcan);
  *******************************************************************************************/
 void can_filter_init(void)
 {
-    CAN_FilterTypeDef can1_filter;
-    can1_filter.FilterIdHigh=0x0000;
-    can1_filter.FilterIdLow=0x0000;
-    can1_filter.FilterMaskIdHigh=0x0000;
-    can1_filter.FilterMaskIdLow=0x0000;
-    can1_filter.FilterFIFOAssignment=CAN_FILTER_FIFO0;
+    CAN_FilterTypeDef filter;
+    filter.FilterIdHigh=0x0000;
+    filter.FilterIdLow=0x0000;
+    filter.FilterMaskIdHigh=0x0000;
+    filter.FilterMaskIdLow=0x0000;
+    filter.FilterFIFOAssignment=CAN_FILTER_FIFO0;
     //filter.FilterBank;
-    can1_filter.FilterMode=CAN_FILTERMODE_IDMASK;
-    can1_filter.FilterScale=CAN_FILTERSCALE_32BIT;
-    can1_filter.FilterActivation=CAN_FILTER_ENABLE;
-    //can1_filter.SlaveStartFilterBank=14;
+    filter.FilterMode=CAN_FILTERMODE_IDMASK;
+    filter.FilterScale=CAN_FILTERSCALE_32BIT;
+    filter.FilterActivation=CAN_FILTER_ENABLE;
+    filter.SlaveStartFilterBank=14;
 
-    can1_filter.FilterBank=0;
-
-    HAL_CAN_ConfigFilter(&hcan1,&can1_filter);
+    filter.FilterBank=0;
+    HAL_CAN_ConfigFilter(&hcan1,&filter);
     HAL_CAN_Start(&hcan1);
     HAL_CAN_ActivateNotification(&hcan1,CAN_IT_RX_FIFO0_MSG_PENDING);
+
+    filter.FilterBank = 14;
+    HAL_CAN_ConfigFilter(&hcan2, &filter);
+    HAL_CAN_Start(&hcan2);
+    HAL_CAN_ActivateNotification(&hcan2, CAN_IT_RX_FIFO0_MSG_PENDING);
 }
 
-uint32_t FlashTimer;
 /*******************************************************************************************
   * @Func			void HAL_CAN_RxCpltCallback(CAN_HandleTypeDef* _hcan)
   * @Brief    HAL库中标准的CAN接收完成回调函数，需要在此处理通过CAN总线接收到的数据

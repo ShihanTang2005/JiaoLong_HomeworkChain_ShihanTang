@@ -21,7 +21,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe3f2c03-f965-42c9-9ab3-395c7e81b6a8" name="Changes" comment="feat: 新增can通道，新yaw和pitch电机初始化">
+    <list default="true" id="fe3f2c03-f965-42c9-9ab3-395c7e81b6a8" name="Changes" comment="fix:修复了can报文的标识符，原来6020是电压信息输入的，不过和电流输入也区别不大">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvguix.TSH" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvguix.TSH" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvoptx" afterDir="false" />
@@ -216,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703228129300</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix:修复了can报文的标识符，原来6020是电压信息输入的，不过和电流输入也区别不大">
+      <option name="closed" value="true" />
+      <created>1703418618256</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703418618256</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +268,7 @@
     <MESSAGE value="fix:电机不按我要求转" />
     <MESSAGE value="fix:pid,debug时候调的，忘记在源文件里改了" />
     <MESSAGE value="feat: 新增can通道，新yaw和pitch电机初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 新增can通道，新yaw和pitch电机初始化" />
+    <MESSAGE value="fix:修复了can报文的标识符，原来6020是电压信息输入的，不过和电流输入也区别不大" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:修复了can报文的标识符，原来6020是电压信息输入的，不过和电流输入也区别不大" />
   </component>
 </project>

@@ -1,0 +1,10 @@
+//
+// Created by TSH-STUDIO 唐诗涵 on 2023/12/24.
+//
+
+#ifndef HW1_HARDWARE_MODULE_SWITCH_H
+#define HW1_HARDWARE_MODULE_SWITCH_H
+
+#define GIMBAL
+
+#endif //HW1_HARDWARE_MODULE_SWITCH_H

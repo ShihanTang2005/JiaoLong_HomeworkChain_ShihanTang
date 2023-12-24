@@ -108,7 +108,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim6);
   HAL_UARTEx_ReceiveToIdle_DMA(&huart3, (uint8_t *) sbus_rx_buffer, RC_FRAME_LENGTH);
   can_filter_init();
-  motor_init();
+  //motor_init();
 //    HAL_UART_Receive_IT(&huart3, (uint8_t *) sbus_rx_buffer, RC_FRAME_LENGTH);
   /* USER CODE END 2 */
 

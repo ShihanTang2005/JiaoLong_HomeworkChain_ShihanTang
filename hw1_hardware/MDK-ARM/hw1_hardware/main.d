@@ -49,4 +49,5 @@ hw1_hardware/main.o: ..\Core\Src\main.cpp ..\Core\Inc\main.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\string.h \
   C:\Keil_v5\ARM\ARMCLANG\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdbool.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h
+  C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h \
+  ..\Core\Src\..\..\inc\motor.h ..\Core\Src\..\..\inc\PID.h

@@ -20,6 +20,15 @@ float Limit(float val, float min, float max)
     return val;
 }
 
+int sign(int val){
+    if (val > 0)
+        return 1;
+    else if(val < 0)
+        return -1;
+    else
+        return 0;
+}
+
 /**
  * @brief 循环限幅：将最大值减最小值的差视为一个周期，加上或减去若干个周期，使得输出在下限与上限之间
  * @param val 输入值

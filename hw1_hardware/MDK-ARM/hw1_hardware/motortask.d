@@ -199,4 +199,5 @@ hw1_hardware/motortask.o: ..\src\motortask.cpp ..\src\..\inc\motor.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__math\traits.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__math\trigonometric_functions.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h ..\src\..\Inc\my_math.h
+  C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h ..\src\..\inc\my_math.h \
+  ..\src\..\inc\maincontrol.h

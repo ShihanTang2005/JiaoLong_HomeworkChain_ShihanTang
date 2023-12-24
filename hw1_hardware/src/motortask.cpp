@@ -1,11 +1,6 @@
 
 #include "../inc/motor.h"
 
-
-
-
-
-#include "../inc/motor.h"
 #include "math.h"
 #include "../inc/my_math.h"
 #include "../inc/maincontrol.h"
@@ -90,9 +85,15 @@ void Motor::Handle() // 根据当前 mode_ 计算控制量
         intensity_=(int16_t)(spid_.Calculate(target_speed_,motor_data_.rotate_speed)/20*16384);
         //电调接受控制量-16384~16384，对应电流-20A~20A
     else if(info_.type==Motor::GM6020)
-        intensity_=(int16_t)(spid_.Calculate(target_speed_,motor_data_.rotate_speed)/24*30000);
+        Motor::target_speed_ =
+                ppid_.Calculate(target_angle_, motor_data_.angle);
+        float intensity_float_=(spid_.Calculate(target_speed_, motor_data_.rotate_speed));
+    intensity_float_ =
+            Limit(intensity_float_ * sign(info_.ratio),-info_.max_intensity, info_.max_intensity);
+    intensity_ = (int16_t)intensity_float_;
+        //intensity_=(int16_t)(spid_.Calculate(target_speed_,motor_data_.rotate_speed)/24*30000);
     //电调接受控制量-30000~30000，对应电压-24V~24V
-
+	//intensity_=k1;
 }
 void Motor::SetAngle(const float& target_angle) // 设置目标角度
 {
@@ -137,9 +138,15 @@ void Motor::canTxMsg()
 {
     uint16_t motor_index=id_;
     uint16_t intense = intensity_;
-    motor_Tx_message[id_*2-2] = (uint8_t) (intense >> 8);//电流值的高8位
-    motor_Tx_message[id_*2-1] = (uint8_t) (intense & 0xFF); //电流值的低八位
-
+    if(Motor::info_.type==Motor::M3508||Motor::info_.type==Motor::M2006) {
+        motor_Tx_message[id_ * 2 - 2] = (uint8_t) ((uint16_t)intense >> 8);//电流值的高8位
+        motor_Tx_message[id_ * 2 - 1] = (uint8_t) ((uint16_t)intense & 0xFF); //电流值的低八位
+    }
+    else if(Motor::info_.type==Motor::GM6020){
+        uint16_t id_final = id_-4;
+        motor_Tx_message[id_final * 2 - 2] = (uint8_t) ((uint16_t)intense >> 8);//电流值的高8位
+        motor_Tx_message[id_final * 2 - 1] = (uint8_t) ((uint16_t)intense & 0xFF); //电流值的低八位
+    }
 }
 
 void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_header,const uint8_t *rx_data)
@@ -150,7 +157,7 @@ void MotorControlCANRx(CAN_HandleTypeDef *hcan,const CAN_RxHeaderTypeDef *rx_hea
     if (hcan == &hcan1){
         switch(motor_index){
             case 1:
-                motor1.canRxMsg(rx_data);
+                //motor1.canRxMsg(rx_data);
                 break;
             case 8:
                 GMP.canRxMsg(rx_data);  //can1 id 8

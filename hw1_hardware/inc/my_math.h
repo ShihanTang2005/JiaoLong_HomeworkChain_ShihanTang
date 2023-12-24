@@ -7,7 +7,7 @@ extern "C" {
 #endif
 #define RADpS2RPM(num)(num / (3.1415926f/30.0f))
 #define MY_PI 3.14159265358979323846
-
+int sign(int val);
 float Limit(float val, float min, float max);
 float LoopLimit(float val, float min, float max);
 float DeadBand(float val, float min, float max);

@@ -207,4 +207,5 @@ hw1_hardware/maincontrol.o: ..\src\maincontrol.cpp \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h ..\src\..\Inc\my_math.h
+  C:\Keil_v5\ARM\ARMCLANG\include\stdio.h ..\src\..\inc\my_math.h \
+  ..\src\..\inc\maincontrol.h ..\src\..\inc\module_switch.h

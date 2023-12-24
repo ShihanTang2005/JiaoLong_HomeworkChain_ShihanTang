@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="hw1_hardware" targetName="hw1_hardware.elf" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug-MinGW -stm32" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="MinGW -stm32" />
+      <configuration PROFILE_NAME="stm32" ENABLED="true" CONFIG_NAME="Debug" TOOLCHAIN_NAME="MinGW-stm32" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe3f2c03-f965-42c9-9ab3-395c7e81b6a8" name="Changes" comment="feat: 新增can通道，新yaw和pitch电机初始化">
+      <change beforePath="$PROJECT_DIR$/Core/Src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvguix.TSH" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvguix.TSH" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware.uvoptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/bsp_can.o" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/bsp_can.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.axf" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.axf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.build_log.htm" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.build_log.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.hex" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.htm" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.map" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware_hw1_hardware.dep" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/hw1_hardware_hw1_hardware.dep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/main.d" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/main.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/maincontrol.d" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/maincontrol.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/maincontrol.o" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/maincontrol.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/motortask.d" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/motortask.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/motortask.o" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/motortask.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/my_math.o" beforeDir="false" afterPath="$PROJECT_DIR$/MDK-ARM/hw1_hardware/my_math.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/my_math.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/my_math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maincontrol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/maincontrol.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/motortask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/motortask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/my_math.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/my_math.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-MinGW -stm32" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2Z1QRx2caoX5sdTq0x8W29BqGOv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/TSH/Swerve-Infantry-Frame-2023-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\TSH\JIAOLONGGIT\JiaoLong_HomeworkChain_ShihanTang\hw1_hardware\inc" />
+      <recent name="C:\TSH\JIAOLONGGIT\JiaoLong_HomeworkChain_ShihanTang\hw1_hardware\" />
+      <recent name="C:\TSH\JIAOLONGGIT\JiaoLong_HomeworkChain_ShihanTang\hw1_hardware\mycode\inc" />
+      <recent name="C:\TSH\JIAOLONGGIT\JiaoLong_HomeworkChain_ShihanTang\hw1_hardware\Core\Inc" />
+    </key>
+  </component>
+  <component name="RunManager" selected="OpenOCD Download &amp; Run.main">
+    <configuration name="hw1_hardware.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hw1_hardware" TARGET_NAME="hw1_hardware.elf" CONFIG_NAME="Debug-MinGW -stm32" RUN_TARGET_PROJECT_NAME="hw1_hardware" RUN_TARGET_NAME="hw1_hardware.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hw1_hardware" TARGET_NAME="hw1_hardware.elf" CONFIG_NAME="stm32" version="1" RUN_TARGET_PROJECT_NAME="hw1_hardware" RUN_TARGET_NAME="hw1_hardware.elf">
+      <openocd version="1" gdb-port="3333" telnet-port="4444" board-config="C:\TSH\JIAOLONGGIT\JiaoLong_HomeworkChain_ShihanTang\hw1_hardware\STlink.cfg" reset-type="INIT" download-type="UPDATED_ONLY">
+        <debugger kind="GDB" isBundled="true" />
+      </openocd>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.hw1_hardware.elf" />
+      <item itemvalue="OpenOCD Download &amp; Run.main" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe3f2c03-f965-42c9-9ab3-395c7e81b6a8" name="Changes" comment="" />
+      <created>1701587100210</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701587100210</updated>
+      <workItem from="1701587101246" duration="10452000" />
+      <workItem from="1701599218281" duration="7171000" />
+      <workItem from="1701607843040" duration="175000" />
+      <workItem from="1701608135631" duration="2221000" />
+      <workItem from="1701612130290" duration="9516000" />
+      <workItem from="1701943682498" duration="635000" />
+      <workItem from="1701946497922" duration="1193000" />
+      <workItem from="1702002195311" duration="96000" />
+      <workItem from="1702729664523" duration="607000" />
+      <workItem from="1702865523306" duration="597000" />
+      <workItem from="1702866217650" duration="597000" />
+      <workItem from="1702952829570" duration="20379000" />
+      <workItem from="1702998927933" duration="261000" />
+      <workItem from="1703039644068" duration="11051000" />
+      <workItem from="1703068616434" duration="7462000" />
+      <workItem from="1703082911600" duration="1266000" />
+      <workItem from="1703084192768" duration="3957000" />
+      <workItem from="1703125898197" duration="3560000" />
+      <workItem from="1703142830321" duration="218000" />
+      <workItem from="1703143354302" duration="5482000" />
+      <workItem from="1703160333621" duration="109000" />
+      <workItem from="1703160624959" duration="3688000" />
+      <workItem from="1703211904645" duration="11987000" />
+      <workItem from="1703234500454" duration="1674000" />
+      <workItem from="1703236323283" duration="986000" />
+      <workItem from="1703238765014" duration="2222000" />
+      <workItem from="1703327012798" duration="1845000" />
+      <workItem from="1703339964674" duration="3271000" />
+      <workItem from="1703343381287" duration="928000" />
+      <workItem from="1703385098429" duration="8854000" />
+      <workItem from="1703403147419" duration="15000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix: cmakelist &amp; related">
+      <option name="closed" value="true" />
+      <created>1701587862296</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701587862296</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 遥控器回传看到数据">
+      <option name="closed" value="true" />
+      <created>1701623220268</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701623220268</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix:uart接收不到数据还报错">
+      <option name="closed" value="true" />
+      <created>1702999162312</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702999162312</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix:电机不按我要求转">
+      <option name="closed" value="true" />
+      <created>1703160877120</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703160877120</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix:pid,debug时候调的，忘记在源文件里改了">
+      <option name="closed" value="true" />
+      <created>1703160946886</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703160946886</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: 新增can通道，新yaw和pitch电机初始化">
+      <option name="closed" value="true" />
+      <created>1703213952159</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703213952159</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 新增can通道，新yaw和pitch电机初始化">
+      <option name="closed" value="true" />
+      <created>1703228107041</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1703228107041</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 新增can通道，新yaw和pitch电机初始化">
+      <option name="closed" value="true" />
+      <created>1703228129300</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703228129300</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticEditVcpkgJson value="false" />
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: cmakelist &amp; related" />
+    <MESSAGE value="feat: 遥控器回传看到数据" />
+    <MESSAGE value="fix:uart接收不到数据还报错" />
+    <MESSAGE value="fix:电机不按我要求转" />
+    <MESSAGE value="fix:pid,debug时候调的，忘记在源文件里改了" />
+    <MESSAGE value="feat: 新增can通道，新yaw和pitch电机初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 新增can通道，新yaw和pitch电机初始化" />
+  </component>
+</project>
